@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.huaming</groupId>
+		<artifactId>huaming</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>com.huaming.websocket</groupId>
+	<artifactId>websocket-s</artifactId>
+	<version>0.0.1</version>
+	<name>websocket-s</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+	    <jackson-core.version>2.8.6</jackson-core.version>
+	     <jackson-databind.version>2.8.2</jackson-databind.version>
+		<websocket-api.version>1.1</websocket-api.version>
+	   <spring.version>4.2.8.RELEASE</spring.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<build>
+		<finalName>websocket-s</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+	</build>
+	
+	<dependencies>
+	<dependency>
+    <groupId>javax.websocket</groupId>
+    <artifactId>javax.websocket-api</artifactId>
+    <version>${websocket-api.version}</version>
+</dependency>
+<dependency>  
+    <groupId>com.fasterxml.jackson.core</groupId>  
+    <artifactId>jackson-core</artifactId>  
+    <version>${jackson-core.version}</version>  
+</dependency>  
+<dependency>  
+    <groupId>com.fasterxml.jackson.core</groupId>  
+    <artifactId>jackson-databind</artifactId>  
+    <version>${jackson-databind.version}</version>  
+</dependency>  
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-websocket</artifactId>
+    <version>${spring.version}</version>
+</dependency>
+
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
