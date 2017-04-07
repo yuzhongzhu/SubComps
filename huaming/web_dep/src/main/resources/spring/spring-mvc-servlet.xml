@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"               xmlns:p="http://www.springframework.org/schema/p"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:util="http://www.springframework.org/schema/util" xmlns:mvc="http://www.springframework.org/schema/mvc"
+xsi:schemaLocation="
+  http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+  http://www.springframework.org/schema/util
+  http://www.springframework.org/schema/util/spring-util-4.2.xsd
+  http://www.springframework.org/schema/context 
+  http://www.springframework.org/schema/context/spring-context-4.2.xsd
+  http://www.springframework.org/schema/mvc
+  http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+
+<!-- 使用默认的注解映射  是spring MVC为@Controllers分发请求所必须的。
+并提供了：数据绑定支持，@NumberFormatannotation支持，@DateTimeFormat支持，@Valid支持，读写XML的支持（JAXB），读写JSON的支持（Jackson）-->
+<mvc:annotation-driven />
+<!-- 自动扫描  declares support for general annotations such as @Required, @Autowired, @PostConstruct, and so on -->
+<context:component-scan base-package="com.huaming。*" />
+<!-- 主要是用来进行静态资源的访问 -->
+<mvc:resources location="/WEB-INF/static_rs/images/" mapping="/images/**" />
+<mvc:resources location="/WEB-INF/static_rs/css/"  mapping="/css/**" /> 
+<mvc:resources location="/WEB-INF/static_rs/script/" mapping="/script/**" />
+
+
+
+<!-- 上传文件拦截，设置最大上传文件大小 30M=30*1024*1024(B)=31457280 bytes -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="maxUploadSize" value="31457280" />
+</bean>
+</beans>
